@@ -35,8 +35,8 @@ function generateEnemy(){
     let x = Math.random() * canvas.width;
     let y = canvas.height/2;
     let color = randomColor();
-    let speed = Math.random();
-    let health = Math.floor(Math.random() * 10)
+    let speed = (Math.random() * 1.4) + 0.1;
+    let health = Math.floor(Math.random() * 12);
     enemies.push(new Enemy(x,y,20,color,speed,health));
 }
 
@@ -95,7 +95,7 @@ function update() {
     }
     player.draw(c);
 
-    if(enemiesKilled == 5 || enemiesKilled == 10 || enemiesKilled == 15){
+    if((enemiesKilled == 5 || enemiesKilled == 10 || enemiesKilled == 15) && bulletCOUNT <= 40){
         bulletCOUNT = 50;
     }
     requestAnimationFrame(update);

@@ -14,14 +14,11 @@ class Bullet extends Vector {
     }
 
     update(player){
-        console.log("update");
         if(this.y > player.y){
-            console.log("y values");
             let vel = new Vector(player.x,player.y);
             vel.subVector(this);
             let dist = vel.magnitude();
             if(dist > 0){
-                console.log("dist");
                 vel.toDirVec();
                 vel.scale(this.speed);
                 this.addVector(vel);
